@@ -1,0 +1,38 @@
+{
+  "name": "@deonpay/billing-engine",
+  "version": "0.1.0",
+  "description": "Motor de facturacion CFDI 4.0 para Mexico. Cliente Facturapi.io + validadores + catalogos SAT. Disenado para ser independizable como producto SaaS.",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./client": "./src/client/index.ts",
+    "./types": "./src/types/index.ts",
+    "./utils": "./src/utils/index.ts"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0"
+  },
+  "keywords": [
+    "facturacion",
+    "cfdi",
+    "facturapi",
+    "sat",
+    "mexico",
+    "billing"
+  ],
+  "author": "DeonPay",
+  "license": "UNLICENSED"
+}
