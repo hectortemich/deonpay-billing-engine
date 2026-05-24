@@ -5,8 +5,8 @@
  * modulo arma el payload Facturapi.
  */
 
-import type { CreateInvoiceInput, InvoiceCustomer, InvoiceItem } from "../types/invoice.js"
-import type { FormaPago, UsoCFDI } from "../types/catalogs.js"
+import type { CreateInvoiceInput, InvoiceCustomer, InvoiceItem } from "../types/invoice"
+import type { FormaPago, UsoCFDI } from "../types/catalogs"
 
 /**
  * Convierte centavos (formato interno DeonPay) a pesos con 2 decimales,

@@ -1,2 +1,2 @@
-export * from "./rfc.js"
-export * from "./cfdi.js"
+export * from "./rfc"
+export * from "./cfdi"

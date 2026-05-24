@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "Motor de facturacion CFDI 4.0 para Mexico. Cliente Facturapi.io + validadores + catalogos SAT. Disenado para ser independizable como producto SaaS.",
   "private": true,
-  "type": "module",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "exports": {

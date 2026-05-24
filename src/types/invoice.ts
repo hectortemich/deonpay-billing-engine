@@ -15,7 +15,7 @@ import type {
   RegimenFiscal,
   TipoRelacion,
   UsoCFDI,
-} from "./catalogs.js"
+} from "./catalogs"
 
 /**
  * Direccion fiscal del receptor. Solo `zip` es obligatorio en CFDI 4.0;

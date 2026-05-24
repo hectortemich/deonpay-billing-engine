@@ -1,1 +1,1 @@
-export * from "./facturapi.js"
+export * from "./facturapi"

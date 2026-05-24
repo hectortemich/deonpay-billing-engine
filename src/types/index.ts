@@ -1,2 +1,2 @@
-export * from "./catalogs.js"
-export * from "./invoice.js"
+export * from "./catalogs"
+export * from "./invoice"

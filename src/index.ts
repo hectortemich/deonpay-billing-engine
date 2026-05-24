@@ -6,6 +6,6 @@
  * los subpaths "/client", "/types", "/utils").
  */
 
-export * from "./client/index.js"
-export * from "./types/index.js"
-export * from "./utils/index.js"
+export * from "./client/index"
+export * from "./types/index"
+export * from "./utils/index"

@@ -17,7 +17,7 @@ import type {
   CreateInvoiceInput,
   InvoiceResponse,
   OrganizationInfo,
-} from "../types/invoice.js"
+} from "../types/invoice"
 
 const FACTURAPI_BASE_URL = "https://www.facturapi.io/v2"
 
