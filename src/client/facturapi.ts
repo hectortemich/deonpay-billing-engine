@@ -98,15 +98,21 @@ export class FacturapiClient {
    * timbra correctamente, devuelve la factura con `uuid` y stamp.
    * Sino lanza FacturapiError con el detalle de validacion.
    *
-   * Nota: send_email NO es campo del body en Facturapi v2 (rechaza con
-   * 400 "send_email is not allowed"). Va como query param `?email=true`.
-   * Lo sacamos del body antes de mandarlo. El default de Facturapi es
-   * no enviar email, asi que solo agregamos el query cuando es true.
+   * Sobre el envio de email:
+   * Facturapi v2 envia automaticamente el CFDI al `customer.email` si
+   * esta presente. No hay flag `send_email` (rechaza en body con 400
+   * "send_email is not allowed") ni query `?email=true` (rechaza con
+   * 400 "email is not allowed"). El comportamiento por default ya es
+   * "enviar si hay email".
+   *
+   * Si el caller pasa send_email=false en el input, lo descartamos
+   * silenciosamente — Facturapi no soporta deshabilitar el envio
+   * inline. Si quieren controlarlo, deben no incluir customer.email
+   * (el CFDI igual se timbra, sin envio automatico).
    */
   async createInvoice(input: CreateInvoiceInput): Promise<InvoiceResponse> {
-    const { send_email, ...body } = input
-    const path = send_email ? "/invoices?email=true" : "/invoices"
-    return this.request<InvoiceResponse>("POST", path, body)
+    const { send_email: _ignored, ...body } = input
+    return this.request<InvoiceResponse>("POST", "/invoices", body)
   }
 
   /**
