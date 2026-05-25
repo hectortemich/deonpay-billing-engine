@@ -97,9 +97,16 @@ export class FacturapiClient {
    * Crea (timbra) una factura. Si Facturapi valida y el PAC del SAT
    * timbra correctamente, devuelve la factura con `uuid` y stamp.
    * Sino lanza FacturapiError con el detalle de validacion.
+   *
+   * Nota: send_email NO es campo del body en Facturapi v2 (rechaza con
+   * 400 "send_email is not allowed"). Va como query param `?email=true`.
+   * Lo sacamos del body antes de mandarlo. El default de Facturapi es
+   * no enviar email, asi que solo agregamos el query cuando es true.
    */
   async createInvoice(input: CreateInvoiceInput): Promise<InvoiceResponse> {
-    return this.request<InvoiceResponse>("POST", "/invoices", input)
+    const { send_email, ...body } = input
+    const path = send_email ? "/invoices?email=true" : "/invoices"
+    return this.request<InvoiceResponse>("POST", path, body)
   }
 
   /**
